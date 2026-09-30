@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "Visual Gut Journal",
+    "slug": "visual-gut-journal",
+    "owner": "zitaw",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "visualgutjournal",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.visualgutjournal.app",
+      "buildNumber": "1",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "允許 Visual Gut Journal 使用 Face ID，在 Doctor Review 顯示你的私人原圖。"
+        }
+      ],
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "允許 Visual Gut Journal 使用相機拍攝本次紀錄。照片只會暫時處理，不會存入你的相簿。",
+          "recordAudioAndroid": false,
+          "barcodeScannerEnabled": false
+        }
+      ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "e7c3060f-360c-4ed7-b253-2c083a28f928"
+      }
+    }
+  }
+}
