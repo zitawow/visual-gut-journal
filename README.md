@@ -2,7 +2,30 @@
 
 > A privacy-first visual gut journal that turns an awkward health record into a collectible story — while keeping the original available for the moments when it matters.
 
+**Prototype / actively testing.** This project is being built to validate a consumer-health habit loop. It is not a medical device, and its output is an AI visual estimate rather than a diagnosis.
+
+[Open the public sample demo](https://visual-gut-journal-preview.zitaw.chatgpt.site/) · [View the build backlog](docs/backlog.md)
+
 ![Gutverse character collection](assets/gut-creatures/08-cosmic-visor.jpg)
+
+## Product walkthrough
+
+```text
+Capture → Private upload → AI Bristol estimate → Confirm or correct
+        → Gutverse artwork → Gallery and milestone progress
+```
+
+The public demo contains sample records only. It is designed so reviewers can explore the collection, result detail, milestone, and Doctor Review concepts without seeing or creating real health data.
+
+![GutVerse 30-second product walkthrough](docs/media/gutverse-product-walkthrough.gif)
+
+| Consent and privacy | AI result and confirmation |
+| --- | --- |
+| ![Versioned consent screen](docs/media/01-consent.png) | ![AI estimate, confidence, and context](docs/media/02-ai-result.png) |
+| **Private Gallery** | **Milestones** |
+| ![Date-grouped sample Gallery](docs/media/03-gallery.png) | ![Collect, reveal, reflect milestone experience](docs/media/04-milestones.png) |
+
+The screenshots above use sample data. Final native-device screenshots will be refreshed after the first TestFlight smoke test.
 
 ## Why this exists
 
@@ -36,6 +59,35 @@ The public demo is intentionally separated from authenticated health data and us
 - Gallery, milestones, multiple entries per day, and Doctor Review
 - Biometric/device-passcode protection on native Doctor Review
 - Privacy-safe operational events without image bodies or health notes
+
+## Project status
+
+### Completed
+
+- Public sample-data demo with a collectible Gutverse visual direction
+- Email authentication, persistent sessions, and owner-scoped data access
+- Private capture metadata and Storage architecture protected by Row Level Security
+- Server-side Roboflow adapter with Bristol Type 1–7 confidence output
+- Separate user confirmation/correction without overwriting the AI prediction
+- Gallery, multiple entries per day, milestones, and private Doctor Review concepts
+- Duplicate-action protection, quota enforcement, and durable analysis job states
+
+### In testing
+
+- End-to-end real-device capture, loading, result, correction, and recovery flow
+- Physical iPhone, Face ID/device-passcode, and TestFlight behaviour
+- Weak-network, app-restart, retry, cross-device, and two-user isolation scenarios
+- Roboflow accuracy, low-confidence handling, latency, and per-user cost
+- Account recovery, account deletion, and production privacy disclosures
+
+### Planned
+
+- Controlled AI artwork generation to replace the current curated creature set
+- Personal baseline and digestive-pattern insights
+- Doctor-friendly date-range summaries and report export
+- Gut Wrapped sharing loop, subscription, and App Store release
+
+Automatic original-photo deletion is intentionally deferred. The current build must not claim that originals are deleted until a trusted retention worker and deletion verification are active.
 
 ## Architecture
 
@@ -123,4 +175,4 @@ Future work includes controlled AI artwork generation, personal pattern detectio
 
 ## License
 
-See [`LICENSE`](LICENSE).
+Copyright © 2026 Zita Wong. All rights reserved. This repository is publicly visible for evaluation and demonstration, but no permission is granted to reuse, modify, or redistribute the original GutVerse code. Third-party components remain governed by their own licenses. See [`LICENSE`](LICENSE) and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
